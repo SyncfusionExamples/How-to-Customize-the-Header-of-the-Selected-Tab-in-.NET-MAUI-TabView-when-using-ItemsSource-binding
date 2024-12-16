@@ -61,10 +61,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="*" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\..\SfTabView\Source_CheckOut\Dev\maui-tabview\maui\src\tabview\Syncfusion.Maui.TabView.csproj" />
+		<PackageReference Include="Syncfusion.Maui.TabView" Version="*" />
 	</ItemGroup>
 
 </Project>
