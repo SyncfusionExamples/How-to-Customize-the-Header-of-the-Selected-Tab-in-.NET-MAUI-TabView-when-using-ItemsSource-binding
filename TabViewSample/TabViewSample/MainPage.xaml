@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TabViewSample.MainPage"
+             xmlns:local="clr-namespace:TabViewSample"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView">
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <Grid>
+        <tabView:SfTabView x:Name="tabView" ItemsSource="{Binding TabItems}" TabWidthMode="SizeToContent" TabHeaderPadding="0" FlowDirection="RightToLeft">
+            <tabView:SfTabView.Behaviors>
+                <toolkit:EventToCommandBehavior Command="{Binding SelectionChangedCommand}" CommandParameter="{x:Reference tabView}" EventName="SelectionChanged"/>
+            </tabView:SfTabView.Behaviors>
+            <tabView:SfTabView.HeaderItemTemplate>
+                <DataTemplate >
+                    <Label x:Name="headerlabel"  Padding="15,0,15,0" VerticalTextAlignment="Center" VerticalOptions="Center"
+                       Text="{Binding Name}" TextColor="{Binding TextColor}"/>
+                </DataTemplate>
+            </tabView:SfTabView.HeaderItemTemplate>
+            <tabView:SfTabView.ContentItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label x:Name="contentLabel" TextColor="Black"  Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </tabView:SfTabView.ContentItemTemplate>
+        </tabView:SfTabView>
+    </Grid>
+</ContentPage>
